@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+/* eslint-disable prettier/prettier */
+>>>>>>> Stashed changes
 import { createTestClient } from 'apollo-server-testing';
 import { createConnection, getConnection } from 'typeorm';
 import Wilder from './models/Wilder';
@@ -54,5 +58,41 @@ describe('Apollo server', () => {
     });
   });
 
+<<<<<<< Updated upstream
   describe('query wilders', () => {});
+=======
+  describe('query wilders', () => {
+    it('get all wilders', async () => {
+      const wilder = Wilder.create({firstName: 'Prune', lastName: 'Banane'});
+      const wilder2 =  Wilder.create({firstName: 'Poire', lastName: 'Chocolat'});
+      await wilder.save();
+      await wilder2.save();
+
+      const response = await query({ query:`
+      {
+        wilders {
+          firstName
+          lastName
+        }
+      }
+      `
+      })
+
+      expect(await Wilder.count()).toEqual(2);
+      expect(response.data).toEqual({
+        wilders: [
+          {
+            firstName: 'Prune',
+            lastName: 'Banane'
+          },
+          {
+            firstName: 'Poire',
+            lastName: 'Chocolat'
+          }
+        ]
+      });
+
+    });
+  });
+>>>>>>> Stashed changes
 });
