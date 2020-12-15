@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 /* eslint-disable prettier/prettier */
->>>>>>> Stashed changes
 import { createTestClient } from 'apollo-server-testing';
 import { createConnection, getConnection } from 'typeorm';
 import Wilder from './models/Wilder';
@@ -58,9 +55,6 @@ describe('Apollo server', () => {
     });
   });
 
-<<<<<<< Updated upstream
-  describe('query wilders', () => {});
-=======
   describe('query wilders', () => {
     it('get all wilders', async () => {
       const wilder = Wilder.create({firstName: 'Prune', lastName: 'Banane'});
@@ -94,5 +88,4 @@ describe('Apollo server', () => {
 
     });
   });
->>>>>>> Stashed changes
 });
